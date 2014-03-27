@@ -11,6 +11,10 @@ public partial class Login : System.Web.UI.Page
     {
 
     }
+
+    /// <summary>
+    /// Logs the user into the system.
+    /// </summary>
     protected void btnLogin_Click(object sender, EventArgs e)
     {
         try
@@ -33,5 +37,21 @@ public partial class Login : System.Web.UI.Page
         catch (Exception exc)
         {
         }
+    }
+
+    /// <summary>
+    /// Allows user to analyze an essay without the need to login.
+    /// </summary>
+    protected void btnWithoutLogin_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("AddEssay.aspx");
+    }
+
+    /// <summary>
+    /// Sends the user to the signup page.
+    /// </summary>
+    protected void btnCreateAccount_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CreateAccount.aspx");
     }
 }

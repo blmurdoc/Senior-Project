@@ -3,6 +3,18 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div>
         <h1>Essay Analyzer - Results</h1>
-        <asp:Literal runat="server" ID="litResults" />
+        <a href="AddEssay.aspx" runat="server"><< Back to Add Essay</a>
+        <div class="border2">
+            <div class="border1">
+                <div id="EssayResults">
+                    <textarea id="editor1" name="editor1">
+                        <asp:Literal runat="server" ID="litResults" />
+                    </textarea>
+                </div>
+            </div>
+        </div>
     </div>
+    <script type="text/javascript">
+        CKEDITOR.replace('editor1');
+    </script>
 </asp:Content>

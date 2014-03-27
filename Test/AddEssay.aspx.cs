@@ -30,13 +30,20 @@ public partial class AddEssay : System.Web.UI.Page
             UploadedText = essayText
         };
 
-        // Get the essay ID.
-        var essayID = Global.ServerInterface.AddEssay(essay);
+        try
+        {
+            // Get the essay ID.
+            var essayID = Global.ServerInterface.AddEssay(essay);
 
-        // Analyze the essay.
-        Global.ServerInterface.AnalyzeEssay(essayID);
+            // Analyze the essay.
+            Global.ServerInterface.AnalyzeEssay(essayID);
 
-        // Redirect to the results page with the essayID.
-        Response.Redirect(String.Format("Results.aspx?EssayID={0}", essayID));
+            // Redirect to the results page with the essayID.
+            Response.Redirect(String.Format("Results.aspx?EssayID={0}", essayID));
+        }
+        catch(Exception exc)
+        {
+            // List errors in validation summary.
+        }
     }
 }
