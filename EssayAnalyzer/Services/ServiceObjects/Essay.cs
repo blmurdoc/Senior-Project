@@ -20,6 +20,6 @@ namespace Services.ServiceObjects
         public string Name { get; set; }
 
         [DataMember]
-        public string Analysis { get; set; }
+        public Analysis Analysis { get; set; }
     }
 }

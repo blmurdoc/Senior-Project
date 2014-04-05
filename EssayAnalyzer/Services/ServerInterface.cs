@@ -56,10 +56,83 @@ namespace Services
             {
                 throw new System.ArgumentException("Invalid Essay ID");
             };
-            String TestWord = ReturnFirstWorldBolded(essay);
+            Analysis analysis = new Analysis();
+            string[] wordList = StringToWordList(essay.UploadedText);
+            WordCount(analysis, wordList);
+            WordUsage(analysis, wordList);
+            HighFrequencyWords(analysis);
+            ProximityWordAnalysis(analysis, wordList);
+            /*String TestWord = ReturnFirstWorldBolded(essay);
             string backgroundChange = String.Format("<body bgcolor='FF0000'>{0}</body>", essay.UploadedText);
             
-            essay.Analysis = backgroundChange;
+            essay.Analysis = backgroundChange;*/
+        }
+
+        public string[] StringToWordList(string text)
+        {
+            return text.Split(new Char[] { ' ', ',', '.', ':', '\t', '\n', '!', '?', '/' });
+        }
+
+        public void WordCount(Analysis analysis, string[] wordList)
+        {
+            
+            int tempWordCount = 0;
+            foreach (string word in wordList)
+            {
+                tempWordCount += 1;
+            }
+            analysis.WordCount = tempWordCount;
+        }
+
+        public void WordUsage(Analysis analysis, string[] wordList)
+        {
+            Dictionary<string, int> WordUsage = new Dictionary<string, int>();
+            foreach (string word in wordList)
+            {
+                if (WordUsage.ContainsKey(word))
+                {
+                    WordUsage[word] = WordUsage[word] + 1;
+                }
+                else
+                {
+                    WordUsage.Add(word, 1);
+                }
+            }
+            analysis.WordFrequency = WordUsage;
+        }
+
+        public void HighFrequencyWords(Analysis analysis)
+        {
+            List<String> HighFrequencyWordList = new List<String>();
+            Dictionary<string, int> WordFrequency = analysis.WordFrequency;
+            double highFrequencyValue = (analysis.WordCount*.02);
+            foreach (var pair in WordFrequency)
+            {
+                if (pair.Value >= highFrequencyValue)
+                {
+                    HighFrequencyWordList.Add(pair.Key);
+                }
+            }
+            analysis.HighFrequencyWordList = HighFrequencyWordList;
+        }
+
+        public void ProximityWordAnalysis(Analysis analysis, string[] wordList)
+        {
+            Dictionary<string, int[]> WordUsage = new Dictionary<string, int[]>();
+            int wordNumber = 0;
+            foreach (string word in wordList)
+            {
+                wordNumber += 1;
+                if (WordUsage.ContainsKey(word))
+                {
+                    WordUsage[word] = new int[] { (WordUsage[word][1] + (1 * 1 / (wordNumber - WordUsage[word][2]))), wordNumber };
+                }
+                else
+                {
+                    WordUsage.Add(word, new int[] { 1,wordNumber } );
+                }
+            }
+            analysis.WordProximity = WordUsage;
         }
 
         /// <summary>
