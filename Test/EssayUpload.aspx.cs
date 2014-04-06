@@ -14,7 +14,11 @@ public partial class AddEssay : System.Web.UI.Page
     {
 
     }
-    protected void btnAddEssay_Click(object sender, EventArgs e)
+
+    /// <summary>
+    /// Sends the essay to the server side for analysis and brings user to analysis page.
+    /// </summary>
+    protected void btnAnalyzeEssay_Click(object sender, EventArgs e)
     {
         // Convert the stream from the uploaded file to a string.
         StreamReader reader = new StreamReader(fuEssayUpload.FileContent);
@@ -23,25 +27,18 @@ public partial class AddEssay : System.Web.UI.Page
         // Get the filename.
         var filename = fuEssayUpload.FileName;
 
-        // Create the essay object.
-        var essay = new Essay
-        {
-            Name = filename,
-            UploadedText = essayText
-        };
+        Global.ServerInterface._Essay.Name = filename;
+        Global.ServerInterface._Essay.UploadedText = essayText;
 
         try
         {
-            // Get the essay ID.
-            var essayID = Global.ServerInterface.AddEssay(essay);
-
             // Analyze the essay.
-            Global.ServerInterface.AnalyzeEssay(essayID);
+            Global.ServerInterface.AnalyzeEssay();
 
             // Redirect to the results page with the essayID.
-            Response.Redirect(String.Format("Results.aspx?EssayID={0}", essayID));
+            Response.Redirect("Results.aspx");
         }
-        catch(Exception exc)
+        catch (Exception exc)
         {
             // List errors in validation summary.
         }

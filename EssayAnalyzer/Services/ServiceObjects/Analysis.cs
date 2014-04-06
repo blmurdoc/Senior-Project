@@ -14,8 +14,7 @@ namespace Services.ServiceObjects
         public int WordCount { get; set; }
 
         [DataMember]
-        public List<String> MispelldWords { get; set; }
-
+        public List<String> MisspelledWords { get; set; }
 
         [DataMember]
         public Dictionary<string, int> WordFrequency { get; set; }

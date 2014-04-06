@@ -11,9 +11,6 @@ namespace Services.ServiceObjects
     public class Essay
     {
         [DataMember]
-        public int EssayID { get; set; }
-
-        [DataMember]
         public string UploadedText { get; set; }
 
         [DataMember]

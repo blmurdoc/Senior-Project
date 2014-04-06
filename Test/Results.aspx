@@ -3,7 +3,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div>
         <h1>Essay Analyzer - Results</h1>
-        <a href="AddEssay.aspx" runat="server"><< Back to Add Essay</a>
+        <a href="EssayUpload.aspx" runat="server"><< Back to Essay Upload</a>
         <div class="border2">
             <div class="border1">
                 <div id="EssayResults">
