@@ -38,20 +38,25 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="xunit">
-      <HintPath>..\..\..\Program-Analyzer\xunit-1.9.1\xunit.dll</HintPath>
+    <Reference Include="xunit, Version=1.9.1.1600, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\xunit-1.9.1\xunit.dll</HintPath>
     </Reference>
-    <Reference Include="xunit.extensions">
-      <HintPath>..\..\..\Program-Analyzer\xunit-1.9.1\xunit.extensions.dll</HintPath>
+    <Reference Include="xunit.extensions, Version=1.9.1.1600, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\xunit-1.9.1\xunit.extensions.dll</HintPath>
     </Reference>
-    <Reference Include="xunit.runner.msbuild">
-      <HintPath>..\..\..\Program-Analyzer\xunit-1.9.1\xunit.runner.msbuild.dll</HintPath>
+    <Reference Include="xunit.runner.msbuild, Version=1.9.1.1600, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\xunit-1.9.1\xunit.runner.msbuild.dll</HintPath>
     </Reference>
-    <Reference Include="xunit.runner.tdnet">
-      <HintPath>..\..\..\Program-Analyzer\xunit-1.9.1\xunit.runner.tdnet.dll</HintPath>
+    <Reference Include="xunit.runner.tdnet, Version=1.9.1.1600, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\xunit-1.9.1\xunit.runner.tdnet.dll</HintPath>
     </Reference>
-    <Reference Include="xunit.runner.utility">
-      <HintPath>..\..\..\Program-Analyzer\xunit-1.9.1\xunit.runner.utility.dll</HintPath>
+    <Reference Include="xunit.runner.utility, Version=1.9.1.1600, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\xunit-1.9.1\xunit.runner.utility.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
