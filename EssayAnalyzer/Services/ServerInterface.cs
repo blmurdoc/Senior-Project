@@ -39,7 +39,7 @@ namespace Services
         /// </summary>
         public void AnalyzeEssay()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
 
             // TODO: This method must be implemented in stages.
             // You should focus on one test at a time and write the
@@ -62,7 +62,7 @@ namespace Services
         /// <summary>
         /// TODO: XML Comment
         /// </summary>
-        private void WordCount(string[] wordList)
+        /*private void WordCount(string[] wordList)
         {
             
             int tempWordCount = 0;
@@ -133,6 +133,6 @@ namespace Services
                 }
             }
             analysis.WordProximity = WordUsage;
-        }
+        }*/
     }
 }
