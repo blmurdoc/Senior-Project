@@ -9,21 +9,12 @@ namespace Services
 {
     public class ServerInterface
     {
-        private Char[] SUPPORTEDNONWORDCHARACTERS = { '{', '}', '+', '-', '\\', ' ', ',', '.', ':', '\t', '\n', '!', '?', '/', '`', '@', '#', '$', '%', '^', '&', '*', '(', ')', '[', ']', '\"', ':', ';', '/', '>', '<' };
+        private Char[] SUPPORTEDNONWORDCHARACTERS = { '\r', '{', '}', '+', '-', '\\', ' ', ',', '.', ':', '\t', '\n', '!', '?', '/', '`', '@', '#', '$', '%', '^', '&', '*', '(', ')', '[', ']', '\"', ':', ';', '/', '>', '<' };
 
-        /*
-         TODO: I've renamed some of the attributes of the new Analysis class to 
-         * better reflect what they are supposed to represent. I would rename the
-         * private methods. Some of the logic is good for the private methods, but
-         * I would consider rewritting them when fixing the tests, and only write
-         * what is needed to fix the test. If there is something else you want to 
-         * place in the method, first write a test. TDD
-         */
-
-        // TODO: Don't forget to erase these todos as you go :)
+        private Essay _essay;
 
         /// <summary>
-        /// Represents the essay object the user uploads.
+        /// Returns the _essay field. If _essay is null creates a new _essay before returning it.
         /// </summary>
         public Essay _Essay
         {
@@ -31,10 +22,19 @@ namespace Services
             {
                 if (_essay == null)
                     _essay = new Essay();
+                    _essay.Analysis = new Analysis();
                 return _essay;
             }
         }
-        private Essay _essay;
+
+        /// <summary>
+        /// Sets the _essay field to an Essay object.
+        /// </summary>
+        /// <param name="essay"> Essay that _essay wil be set to. </param>
+        public void SetEssay(Essay essay)
+        {
+            _essay = essay;
+        }
 
         /// <summary>
         /// Analyzes the given essay.
@@ -61,21 +61,9 @@ namespace Services
             return text.Split(SUPPORTEDNONWORDCHARACTERS, StringSplitOptions.RemoveEmptyEntries);
         }
 
-        /// <summary>
-        /// TODO: XML Comment
-        /// </summary>
-        /*private void WordCount(string[] wordList)
-        {
-            
-            int tempWordCount = 0;
-            foreach (string word in wordList)
-            {
-                tempWordCount += 1;
-            }
-            // TODO: access the analysis with _Essay.Analysis
-            analysis.WordCount = tempWordCount;
-        }
+        
 
+        /*
         /// <summary>
         /// TODO: XML Comment
         /// </summary>

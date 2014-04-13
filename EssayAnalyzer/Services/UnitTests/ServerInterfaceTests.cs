@@ -11,22 +11,6 @@ namespace Services.Testing
     public class ServerInterfaceTests
     {
         ServerInterface _ServerInterface = new ServerInterface();   
-    
-        /*
-         Test Methodology:
-         * Naming:
-         *  <Method under test>_<Condition under test>_<Expected outcome>()
-         *  {
-         *      /// Initialize
-         *      Used to set up the condition under test
-         *      
-         *      /// Test
-         *      Call the MUT (method under test)
-         *      
-         *      /// Assert
-         *      Used to assert the expected outcome
-         *  }
-         */
 
         [Fact]
         public void StringToWordList_EmptyString_EmptyList()
@@ -169,9 +153,9 @@ namespace Services.Testing
             /// Assert
             // Ensure that the word count was calculated correctly
             Assert.Equal(wordCount, _ServerInterface._Essay.Analysis.TotalWordCount);
-        }
+        }*/
 
-        [Fact]
+        /*[Fact]
         public void AnalyzeEssay_GeneralCall_IndividualWordFrequencyIsCorrect()
         {
             /// Initialize
