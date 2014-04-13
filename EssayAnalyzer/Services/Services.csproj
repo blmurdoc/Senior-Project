@@ -66,6 +66,7 @@
     <Compile Include="ServiceObjects\Analysis.cs" />
     <Compile Include="ServiceObjects\Essay.cs" />
     <Compile Include="UnitTests\ServerInterfaceTests.cs" />
+    <Compile Include="UnitTests\SystemInterfaceTests\StringToWordListTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

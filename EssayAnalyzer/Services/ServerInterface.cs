@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 namespace Services
 {
     public class ServerInterface
-    {     
+    {
+        private Char[] SUPPORTEDNONWORDCHARACTERS = { '{', '}', '+', '-', '\\', ' ', ',', '.', ':', '\t', '\n', '!', '?', '/', '`', '@', '#', '$', '%', '^', '&', '*', '(', ')', '[', ']', '\"', ':', ';', '/', '>', '<' };
+
         /*
          TODO: I've renamed some of the attributes of the new Analysis class to 
          * better reflect what they are supposed to represent. I would rename the
@@ -54,9 +56,9 @@ namespace Services
         /// Also make sure that methods within this class outside
         /// of of the AnalyzeEssay should be private.
         /// </summary>
-        private string[] StringToWordList(string text)
+        public string[] StringToWordList(string text)
         {
-            return text.Split(new Char[] { ' ', ',', '.', ':', '\t', '\n', '!', '?', '/' });
+            return text.Split(SUPPORTEDNONWORDCHARACTERS, StringSplitOptions.RemoveEmptyEntries);
         }
 
         /// <summary>
