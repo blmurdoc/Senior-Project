@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Services.AnalysisObjects;
 
 namespace Services
 {
     public class ServerInterface
     {
-        private Char[] SUPPORTEDNONWORDCHARACTERS = { '\r', '{', '}', '+', '-', '\\', ' ', ',', '.', ':', '\t', '\n', '!', '?', '/', '`', '@', '#', '$', '%', '^', '&', '*', '(', ')', '[', ']', '\"', ':', ';', '/', '>', '<' };
-
         private Essay _essay;
 
         /// <summary>
@@ -41,50 +40,14 @@ namespace Services
         /// </summary>
         public void AnalyzeEssay()
         {
-            //throw new NotImplementedException();
-
-            // TODO: This method must be implemented in stages.
-            // You should focus on one test at a time and write the
-            // minimal code to make the test pass. Because multiple
-            // people will be working on this method, be sure to 
-            // coordinate with each other so as not to overwrite
-            // anything. Good Luck!!
+            string[] wordArray = StringToWordLister.StringToWordArray(_essay.UploadedText);
+            _essay.Analysis.TotalWordCount = WordCounter.WordCount(wordArray);
+            _essay.Analysis.IndividualWordFrequency = WordUsageCounter.WordUsageCount(wordArray);
         }
 
-        /// <summary>
-        /// TODO: Don't forget our XML comments on all methods.
-        /// Also make sure that methods within this class outside
-        /// of of the AnalyzeEssay should be private.
-        /// </summary>
-        public string[] StringToWordList(string text)
-        {
-            return text.Split(SUPPORTEDNONWORDCHARACTERS, StringSplitOptions.RemoveEmptyEntries);
-        }
 
-        
 
         /*
-        /// <summary>
-        /// TODO: XML Comment
-        /// </summary>
-        private void WordUsage(string[] wordList)
-        {
-            foreach (string word in wordList)
-            {
-                if (WordUsage.ContainsKey(word))
-                {
-                    WordUsage[word] = WordUsage[word] + 1;
-                }
-                else
-                {
-                    WordUsage.Add(word, 1);
-                }
-            }
-            // TODO: Directly access the analysis.IndividualWordFrequency.
-            // No need for unneeded variables. 
-            analysis.WordFrequency = WordUsage;
-        }
-
         /// <summary>
         /// TODO: XML Comment
         /// </summary>

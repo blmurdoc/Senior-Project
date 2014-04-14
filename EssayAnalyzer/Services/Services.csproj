@@ -60,7 +60,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnalysisObjects\StringToWordLister.cs" />
     <Compile Include="AnalysisObjects\WordCounter.cs" />
+    <Compile Include="AnalysisObjects\WordUsageCounter.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServerInterface.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="ServiceObjects\Essay.cs" />
     <Compile Include="UnitTests\SystemInterfaceTests\StringToWordListTests.cs" />
     <Compile Include="UnitTests\SystemInterfaceTests\WordCountTests.cs" />
+    <Compile Include="UnitTests\SystemInterfaceTests\WordUsageCounterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

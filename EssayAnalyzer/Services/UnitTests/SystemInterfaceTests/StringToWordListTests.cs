@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Services.ServiceObjects;
+using Services.AnalysisObjects;
 using Xunit;
 
 namespace Services.UnitTests.SystemInterfaceTests
 {
     public class StringToWordListTests
     {
-        ServerInterface _ServerInterface = new ServerInterface();
 
         /*
          Test Methodology:
@@ -36,9 +35,12 @@ namespace Services.UnitTests.SystemInterfaceTests
             string text = "";
             string[] expectedAnswer = { };
 
+            
+            
+
             /// Test
             // Call the MUT
-            string[] wordList = _ServerInterface.StringToWordList(text);
+            string[] wordList = StringToWordLister.StringToWordArray(text);
 
 
             /// Assert
@@ -56,7 +58,7 @@ namespace Services.UnitTests.SystemInterfaceTests
 
             /// Test
             // Call the MUT
-            string[] wordList = _ServerInterface.StringToWordList(text);
+            string[] wordList = StringToWordLister.StringToWordArray(text);
 
 
             /// Assert
@@ -74,7 +76,7 @@ namespace Services.UnitTests.SystemInterfaceTests
 
             /// Test
             // Call the MUT
-            string[] wordList = _ServerInterface.StringToWordList(text);
+            string[] wordList = StringToWordLister.StringToWordArray(text);
 
 
             /// Assert
@@ -92,7 +94,7 @@ namespace Services.UnitTests.SystemInterfaceTests
 
             /// Test
             // Call the MUT
-            string[] wordList = _ServerInterface.StringToWordList(text);
+            string[] wordList = StringToWordLister.StringToWordArray(text);
 
 
             /// Assert
@@ -110,7 +112,7 @@ namespace Services.UnitTests.SystemInterfaceTests
 
             /// Test
             // Call the MUT
-            string[] wordList = _ServerInterface.StringToWordList(text);
+            string[] wordList = StringToWordLister.StringToWordArray(text);
 
             /// Assert
             // Ensure that the word count was calculated correctly
@@ -127,7 +129,7 @@ namespace Services.UnitTests.SystemInterfaceTests
 
             /// Test
             // Call the MUT
-            string[] wordList = _ServerInterface.StringToWordList(text);
+            string[] wordList = StringToWordLister.StringToWordArray(text);
 
             /// Assert
             // Ensure that the word count was calculated correctly
@@ -144,7 +146,7 @@ namespace Services.UnitTests.SystemInterfaceTests
 
             /// Test
             // Call the MUT
-            string[] wordList = _ServerInterface.StringToWordList(text);
+            string[] wordList = StringToWordLister.StringToWordArray(text);
 
             /// Assert
             // Ensure that the word count was calculated correctly
@@ -161,7 +163,24 @@ namespace Services.UnitTests.SystemInterfaceTests
 
             /// Test
             // Call the MUT
-            string[] wordList = _ServerInterface.StringToWordList(text);
+            string[] wordList = StringToWordLister.StringToWordArray(text);
+
+            /// Assert
+            // Ensure that the word count was calculated correctly
+            Assert.Equal(wordList, expectedAnswer);
+        }
+
+        [Fact]
+        public void StringToWordList_NullString_EmptywordList()
+        {
+            /// Initialize
+            // Populate the test essay
+            string text = null;
+            string[] expectedAnswer = { };
+
+            /// Test
+            // Call the MUT
+            string[] wordList = StringToWordLister.StringToWordArray(text);
 
             /// Assert
             // Ensure that the word count was calculated correctly
