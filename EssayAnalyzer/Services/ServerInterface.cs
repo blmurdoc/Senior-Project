@@ -51,21 +51,46 @@ namespace Services
         /// <summary>
         /// TODO: XML Comment
         /// </summary>
-        private void HighFrequencyWords()
+<<<<<<< HEAD
+=======
+        private void WordUsage(string[] wordList)
         {
-            List<String> HighFrequencyWordList = new List<String>();
-            Dictionary<string, int> WordFrequency = analysis.WordFrequency;
-            double highFrequencyValue = (analysis.WordCount*.02);
-            foreach (var pair in WordFrequency)
+            foreach (string word in wordList)
             {
-                if (pair.Value >= highFrequencyValue)
+                if (WordUsage.ContainsKey(word))
                 {
-                    HighFrequencyWordList.Add(pair.Key);
+                    WordUsage[word] = WordUsage[word] + 1;
+                }
+                else
+                {
+                    WordUsage.Add(word, 1);
                 }
             }
-            analysis.HighFrequencyWordList = HighFrequencyWordList;
+            // TODO: Directly access the analysis.IndividualWordFrequency.
+            // No need for unneeded variables. 
+            analysis.WordFrequency = WordUsage;
+        }*/
+
+        /// <summary>
+        /// Adds high frequency words to the HighFrequencyWords dictionary.
+        /// Individual words that account for 2% or more of the total word count are considered high-frequency.
+        /// </summary>
+        /// <param name="highFrequencyValue">
+        /// Determines how often a word must appear to be considered high-frequency.
+        /// </param>
+>>>>>>> 023474d62e3f0f44dbc577b9bc0c9e04a123a6d6
+        private void HighFrequencyWords()
+        {
+            double highFrequencyValue = (_essay.Analysis.TotalWordCount * .02);
+
+            foreach (var pair in _essay.Analysis.IndividualWordFrequency)
+            {
+                if (pair.Value >= highFrequencyValue)
+                    _essay.Analysis.HighFrequencyWordList.Add(pair.Key);
+            }
         }
 
+        /*
         /// <summary>
         /// TODO: XML Comment
         /// </summary>
