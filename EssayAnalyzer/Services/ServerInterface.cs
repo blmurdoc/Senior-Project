@@ -78,7 +78,6 @@ namespace Services
         /// <param name="highFrequencyValue">
         /// Determines how often a word must appear to be considered high-frequency.
         /// </param>
->>>>>>> 023474d62e3f0f44dbc577b9bc0c9e04a123a6d6
         private void HighFrequencyWords()
         {
             double highFrequencyValue = (_essay.Analysis.TotalWordCount * .02);
