@@ -83,26 +83,27 @@ namespace Services
             // TODO: Directly access the analysis.IndividualWordFrequency.
             // No need for unneeded variables. 
             analysis.WordFrequency = WordUsage;
-        }
+        }*/
 
         /// <summary>
-        /// TODO: XML Comment
+        /// Adds high frequency words to the HighFrequencyWords dictionary.
+        /// Individual words that account for 2% or more of the total word count are considered high-frequency.
         /// </summary>
+        /// <param name="highFrequencyValue">
+        /// Determines how often a word must appear to be considered high-frequency.
+        /// </param>
         private void HighFrequencyWords()
         {
-            List<String> HighFrequencyWordList = new List<String>();
-            Dictionary<string, int> WordFrequency = analysis.WordFrequency;
-            double highFrequencyValue = (analysis.WordCount*.02);
-            foreach (var pair in WordFrequency)
+            double highFrequencyValue = (_essay.Analysis.TotalWordCount * .02);
+
+            foreach (var pair in _essay.Analysis.IndividualWordFrequency)
             {
                 if (pair.Value >= highFrequencyValue)
-                {
-                    HighFrequencyWordList.Add(pair.Key);
-                }
+                    _essay.Analysis.HighFrequencyWordList.Add(pair.Key);
             }
-            analysis.HighFrequencyWordList = HighFrequencyWordList;
         }
 
+        /*
         /// <summary>
         /// TODO: XML Comment
         /// </summary>

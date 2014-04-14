@@ -23,7 +23,7 @@ namespace Services.ServiceObjects
         public List<string> HighFrequencyWordList { get; set; }
 
         [DataMember]
-        public Dictionary<string, int[]> IndividulWordProximity { get; set; }
+        public Dictionary<string, int[]> IndividualWordProximity { get; set; }
 
         [DataMember]
         public List<string> CloseProximityWordList { get; set; }
