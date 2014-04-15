@@ -75,9 +75,6 @@ namespace Services
         /// Adds high frequency words to the HighFrequencyWords dictionary.
         /// Individual words that account for 2% or more of the total word count are considered high-frequency.
         /// </summary>
-        /// <param name="highFrequencyValue">
-        /// Determines how often a word must appear to be considered high-frequency.
-        /// </param>
         private void HighFrequencyWords()
         {
             double highFrequencyValue = (_essay.Analysis.TotalWordCount * .02);
@@ -89,27 +86,29 @@ namespace Services
             }
         }
 
-        /*
+        
         /// <summary>
-        /// TODO: XML Comment
+        /// Analyzes how close each word in the given list is to each other.
         /// </summary>
+        /// <param name="wordList">
+        /// Ordered list of words to be analyzed.
+        /// </param>
         private void ProximityWordAnalysis(string[] wordList)
-        {
-            Dictionary<string, int[]> WordUsage = new Dictionary<string, int[]>();
+        {      
             int wordNumber = 0;
             foreach (string word in wordList)
             {
                 wordNumber += 1;
-                if (WordUsage.ContainsKey(word))
+                if (_essay.Analysis.IndividualWordProximity.ContainsKey(word))
                 {
-                    WordUsage[word] = new int[] { (WordUsage[word][1] + (1 * 1 / (wordNumber - WordUsage[word][2]))), wordNumber };
+                    _essay.Analysis.IndividualWordProximity[word] = new int[] { (_essay.Analysis.IndividualWordProximity[word][1] + (1 * 1 / (wordNumber - _essay.Analysis.IndividualWordProximity[word][2]))), wordNumber };
                 }
                 else
                 {
-                    WordUsage.Add(word, new int[] { 1,wordNumber } );
+                    _essay.Analysis.IndividualWordProximity.Add(word, new int[] { 1, wordNumber });
                 }
             }
-            analysis.WordProximity = WordUsage;
-        }*/
+        }
+
     }
 }
