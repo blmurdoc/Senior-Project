@@ -60,6 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnalysisObjects\CloseProximityWordLister.cs" />
+    <Compile Include="AnalysisObjects\HighFrequencyWordLister.cs" />
     <Compile Include="AnalysisObjects\StringToWordLister.cs" />
     <Compile Include="AnalysisObjects\WordCounter.cs" />
     <Compile Include="AnalysisObjects\WordUsageCounter.cs" />
@@ -68,8 +70,10 @@
     <Compile Include="ServerInterface.cs" />
     <Compile Include="ServiceObjects\Analysis.cs" />
     <Compile Include="ServiceObjects\Essay.cs" />
+    <Compile Include="UnitTests\SystemInterfaceTests\HighFrequencyWordsTests.cs" />
     <Compile Include="UnitTests\SystemInterfaceTests\StringToWordListTests.cs" />
     <Compile Include="UnitTests\SystemInterfaceTests\WordCountTests.cs" />
+    <Compile Include="UnitTests\SystemInterfaceTests\WordProximityTests.cs" />
     <Compile Include="UnitTests\SystemInterfaceTests\WordUsageCounterTests.cs" />
   </ItemGroup>
   <ItemGroup>
