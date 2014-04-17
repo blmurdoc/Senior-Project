@@ -10,8 +10,6 @@ namespace Services
 {
     public class ServerInterface
     {
-        private Essay _essay;
-
         /// <summary>
         /// Returns the _essay field. If _essay is null creates a new _essay before returning it.
         /// </summary>
@@ -20,19 +18,26 @@ namespace Services
             get
             {
                 if (_essay == null)
+                {
                     _essay = new Essay();
                     _essay.Analysis = new Analysis();
+                }
                 return _essay;
             }
+            set
+            {
+                _Essay = value;
+            }
         }
+        private Essay _essay;
+
 
         /// <summary>
         /// Sets the _essay field to an Essay object.
         /// </summary>
-        /// <param name="essay"> Essay that _essay wil be set to. </param>
         public void SetEssay(Essay essay)
         {
-            _essay = essay;
+            _Essay = essay;
         }
 
         /// <summary>
@@ -41,10 +46,10 @@ namespace Services
         public void AnalyzeEssay()
         {
             string[] wordArray = StringToWordLister.StringToWordArray(_essay.UploadedText);
-            _essay.Analysis.TotalWordCount = WordCounter.WordCount(wordArray);
-            _essay.Analysis.IndividualWordFrequency = WordUsageCounter.WordUsageCount(wordArray);
-            _essay.Analysis.HighFrequencyWordList = HighFrequencyWordLister.HighFrequencyWords(wordArray);
-            _essay.Analysis.CloseProximityWordList = CloseProximityWordLister.ProximityWordAnalysis(wordArray);
+            _Essay.Analysis.TotalWordCount = WordCounter.WordCount(wordArray);
+            _Essay.Analysis.IndividualWordFrequency = WordUsageCounter.WordUsageCount(wordArray);
+            _Essay.Analysis.HighFrequencyWordList = HighFrequencyWordLister.HighFrequencyWords(wordArray);
+            _Essay.Analysis.CloseProximityWordList = CloseProximityWordLister.ProximityWordAnalysis(wordArray);
         }
 
     }
