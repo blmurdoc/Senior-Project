@@ -31,7 +31,9 @@ namespace Services.AnalysisObjects
                 {
                     if (WordListIndex + i < wordList.Length && wordList[WordListIndex + i] == CurrentWord)
                     {
-                        CloseWordProximityList.Add(CurrentWord);
+                        var alreadyExists = CloseWordProximityList.Where(j => j == wordList[WordListIndex]).SingleOrDefault();
+                        if(alreadyExists == null)
+                            CloseWordProximityList.Add(CurrentWord);
                         break;
                     }
                 }

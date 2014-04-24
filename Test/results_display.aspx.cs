@@ -17,5 +17,17 @@ public partial class results_display : System.Web.UI.Page
     public void LoadForm()
     {
        litWordCount.Text = Global.ServerInterface._Essay.Analysis.TotalWordCount.ToString();
+       litWordFrequency.Text = "";
+       var items = from pair in Global.ServerInterface._Essay.Analysis.IndividualWordFrequency
+                   orderby pair.Value descending
+                   select pair;
+       foreach (KeyValuePair<string, int> entry in items)
+       {
+           litWordFrequency.Text += "<tr><td>";
+           litWordFrequency.Text += entry.Key.ToString();
+           litWordFrequency.Text += "</td><td>";
+           litWordFrequency.Text += entry.Value.ToString();
+           litWordFrequency.Text += "</td></tr>";
+       }
     }
 }

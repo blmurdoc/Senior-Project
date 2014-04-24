@@ -60,5 +60,21 @@ namespace Services.UnitTests.SystemInterfaceTests
             /// Check that the test list and expected output list are equal.
             Assert.Equal(TestList,ExpectedOutput);
         }
+
+        [Fact]
+        public void ProximityWordAnalysis_MultipleEntriesOfOneWord_NoDuplicatesAreInList()
+        {
+            /// Initialize
+            // Create the test document
+            var doc = StringToWordLister.StringToWordArray("testing testing testing");
+
+            /// Test
+            // Call the MUT
+            List<string> afterTest = CloseProximityWordLister.ProximityWordAnalysis(doc);
+
+            /// Assert
+            // Ensure that only one word exists
+            Assert.Equal(1, afterTest.Count);
+        }
     }
 }
