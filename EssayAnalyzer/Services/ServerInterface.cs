@@ -47,5 +47,6 @@ namespace Services
             _essay.Analysis.CloseProximityWordList = CloseProximityWordLister.ProximityWordAnalysis(wordArray);
         }
 
+        
     }
 }
