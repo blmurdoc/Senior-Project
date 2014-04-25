@@ -45,6 +45,7 @@ namespace Services
             _essay.Analysis.IndividualWordFrequency = WordUsageCounter.WordUsageCount(wordArray);
             _essay.Analysis.HighFrequencyWordList = HighFrequencyWordLister.HighFrequencyWords(wordArray);
             _essay.Analysis.CloseProximityWordList = CloseProximityWordLister.ProximityWordAnalysis(wordArray);
+            _essay.Analysis.MisspelledWords = SpellChecker.GetMisspelledWords(wordArray);
         }
 
         
