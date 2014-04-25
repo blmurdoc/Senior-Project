@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NHunspell">
+      <HintPath>..\..\Hunspell\NHunspell.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -62,6 +65,7 @@
   <ItemGroup>
     <Compile Include="AnalysisObjects\CloseProximityWordLister.cs" />
     <Compile Include="AnalysisObjects\HighFrequencyWordLister.cs" />
+    <Compile Include="AnalysisObjects\SpellChecker.cs" />
     <Compile Include="AnalysisObjects\StringToWordLister.cs" />
     <Compile Include="AnalysisObjects\WordCounter.cs" />
     <Compile Include="AnalysisObjects\WordUsageCounter.cs" />
@@ -71,6 +75,7 @@
     <Compile Include="ServiceObjects\Analysis.cs" />
     <Compile Include="ServiceObjects\Essay.cs" />
     <Compile Include="UnitTests\SystemInterfaceTests\HighFrequencyWordsTests.cs" />
+    <Compile Include="UnitTests\SystemInterfaceTests\SpellCheckerTests.cs" />
     <Compile Include="UnitTests\SystemInterfaceTests\StringToWordListTests.cs" />
     <Compile Include="UnitTests\SystemInterfaceTests\WordCountTests.cs" />
     <Compile Include="UnitTests\SystemInterfaceTests\WordProximityTests.cs" />
