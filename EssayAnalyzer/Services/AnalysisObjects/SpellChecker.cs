@@ -16,7 +16,7 @@ namespace Services.AnalysisObjects
         /// <returns>A list of misspelled words within the array.</returns>
         public static List<string> GetMisspelledWords(string[] wordarray)
         {
-            string path = @"C:\Users\Jared\Documents\GitHub\Senior-Project\Hunspell\";
+            string path = @"Hunspell\";
             List<string> temp_string_list = new List<string>();
             Hunspell _hunspell_EN = new Hunspell(path + "en_US.aff", path + "en_US.dic");
             
