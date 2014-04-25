@@ -7,27 +7,22 @@ using NHunspell;
 
 namespace Services.AnalysisObjects
 {
-    class SpellChecker
+    public static class SpellChecker
     {
-        private Hunspell _hunspell;
-
-        public SpellChecker(string aff_path, string dic_path)
-        {
-            _hunspell = new Hunspell(aff_path, dic_path);
-        }
-
         /// <summary>
         /// Spell checks an array of words.
         /// </summary>
         /// <param name="wordarray">Array of words to be spell checked.</param>
         /// <returns>A list of misspelled words within the array.</returns>
-        public List<string> GetMisspelledWords(string[] wordarray)
+        public static List<string> GetMisspelledWords(string[] wordarray)
         {
+            string path = @"C:\Users\Jared\Documents\GitHub\Senior-Project\Hunspell\";
             List<string> temp_string_list = new List<string>();
-
+            Hunspell _hunspell_EN = new Hunspell(path + "en_US.aff", path + "en_US.dic");
+            
             foreach(string str in wordarray)
             {
-                if (!_hunspell.Spell(str))
+                if (!_hunspell_EN.Spell(str))
                     temp_string_list.Add(str);
             }
 
