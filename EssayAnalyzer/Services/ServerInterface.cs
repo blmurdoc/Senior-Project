@@ -53,5 +53,9 @@ namespace Services
             _Essay.Analysis.MisspelledWords = SpellChecker.GetMisspelledWords(wordArray);
         }
 
+        public List<string> GetSynonyms(string word)
+        {
+            return Thesaurus.GetSynonyms(word);
+        }
     }
 }

@@ -67,6 +67,7 @@
     <Compile Include="AnalysisObjects\HighFrequencyWordLister.cs" />
     <Compile Include="AnalysisObjects\SpellChecker.cs" />
     <Compile Include="AnalysisObjects\StringToWordLister.cs" />
+    <Compile Include="AnalysisObjects\Thesaurus.cs" />
     <Compile Include="AnalysisObjects\WordCounter.cs" />
     <Compile Include="AnalysisObjects\WordUsageCounter.cs" />
     <Compile Include="Global.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="UnitTests\SystemInterfaceTests\HighFrequencyWordsTests.cs" />
     <Compile Include="UnitTests\SystemInterfaceTests\SpellCheckerTests.cs" />
     <Compile Include="UnitTests\SystemInterfaceTests\StringToWordListTests.cs" />
+    <Compile Include="UnitTests\SystemInterfaceTests\ThesaurusTests.cs" />
     <Compile Include="UnitTests\SystemInterfaceTests\WordCountTests.cs" />
     <Compile Include="UnitTests\SystemInterfaceTests\WordProximityTests.cs" />
     <Compile Include="UnitTests\SystemInterfaceTests\WordUsageCounterTests.cs" />
