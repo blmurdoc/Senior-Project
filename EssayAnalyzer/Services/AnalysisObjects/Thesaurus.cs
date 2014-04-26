@@ -13,7 +13,6 @@ namespace Services.AnalysisObjects
         /// Finds synonyms for the given word.
         /// </summary>
         /// <param name="word">Word to find synyonyms for.</param>
-        /// <param name="capacity">Maximum number of synonyms the list may contain.</param>
         /// <returns>A list of synyonyms for the given word.</returns>
         public static List<string> GetSynonyms(string word)
         {
